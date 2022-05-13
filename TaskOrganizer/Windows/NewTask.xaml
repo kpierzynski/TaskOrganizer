@@ -1,0 +1,20 @@
+﻿<Window x:Class="TaskOrganizer.Windows.NewTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskOrganizer.Windows" xmlns:components="clr-namespace:TaskOrganizer.Components"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"  WindowStyle="None" WindowStartupLocation="CenterOwner"
+        Title="NewTask" Height="170" Width="300">
+
+    <Grid>
+        <Button Content="Create" Click="CreateHandler" Margin="0,0,10,10" HorizontalAlignment="Right" Height="20" VerticalAlignment="Bottom"/>
+        <DatePicker x:Name="date" Margin="10,71,10,0" Height="24" VerticalAlignment="Top" SelectedDate="{x:Static sys:DateTime.Now}"/>
+        <TextBox x:Name="title" Margin="10,42,10,0" TextWrapping="Wrap" Height="24" Text="Task..." VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <ComboBox x:Name="priority" Margin="10,100,10,0" Height="22" VerticalAlignment="Top" SelectedIndex="2"/>
+        <TextBlock Text="Create task" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        <components:Icon IconClicked="CloseHandler" Type="Close" Fill="Red" HorizontalAlignment="Right" Margin="0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

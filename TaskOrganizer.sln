@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskOrganizer", "TaskOrganizer\TaskOrganizer.csproj", "{59035ADF-4830-4AB9-B65B-7A6B7FEEBAB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59035ADF-4830-4AB9-B65B-7A6B7FEEBAB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59035ADF-4830-4AB9-B65B-7A6B7FEEBAB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59035ADF-4830-4AB9-B65B-7A6B7FEEBAB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59035ADF-4830-4AB9-B65B-7A6B7FEEBAB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC007AF3-2B7E-458C-AE1A-20AE24A2C643}
+	EndGlobalSection
+EndGlobal

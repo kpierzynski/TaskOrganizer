@@ -1,0 +1,43 @@
+﻿<UserControl x:Name="tick" x:Class="TaskOrganizer.Components.Tickbox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TaskOrganizer.Components"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <Style TargetType="Rectangle">
+            <Setter Property="StrokeThickness" Value="2"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=tick, Path=IsTicked}" Value="True">
+                    <Setter Property="Fill" Value="{StaticResource Controllable}"/>
+                    <Setter Property="Stroke" Value="{StaticResource ControllableDark}"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=tick, Path=IsTicked}" Value="False">
+                    <Setter Property="Fill" Value="White"/>
+                    <Setter Property="Stroke" Value="#f9fafd"/>
+                </DataTrigger>
+
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Path">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=tick, Path=IsTicked}" Value="False">
+                    <Setter Property="Fill" Value="Transparent"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding ElementName=tick, Path=IsTicked}" Value="True">
+                    <Setter Property="Fill" Value="White"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Rectangle x:Name="rect" MouseLeftButtonUp="clickHandler" MouseLeftButtonDown="opacityClickHandler" Margin="0" RadiusX="4" RadiusY="4"/>
+        <Viewbox Height="{Binding ElementName=tick, Path=Height}" Width="{Binding ElementName=tick, Path=Width}">
+            <Path IsHitTestVisible="False" x:Name="path" Stretch="Fill" Data="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="4"/>
+        </Viewbox>
+    </Grid>
+</UserControl>

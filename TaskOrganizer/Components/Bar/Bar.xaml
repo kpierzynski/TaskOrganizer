@@ -1,0 +1,14 @@
+﻿<UserControl 
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TaskOrganizer.Components.Bar"
+             xmlns:Components="clr-namespace:TaskOrganizer.Components" x:Name="bar" x:Class="TaskOrganizer.Components.Bar.Bar"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="50">
+    <Grid Background="{StaticResource Primary}">
+        <Components:Icon IconClicked="ExpandMenu" Type="Menu" Fill="White" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="30"/>
+        <StackPanel x:Name="controls" Background="Transparent" Margin="0,64,0,0" HorizontalAlignment="Right" Width="Auto"/>
+    </Grid>
+</UserControl>
