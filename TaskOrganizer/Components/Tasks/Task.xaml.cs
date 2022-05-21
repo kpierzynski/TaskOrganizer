@@ -27,8 +27,25 @@ namespace TaskOrganizer.Components.Tasks {
     /// <summary>
     /// Interaction logic for Task.xaml
     /// </summary>
+    /// 
+    public class PriorityOptions {
+        public String Title {
+            get; set;
+        }
+        public SolidColorBrush Color {
+            get; set;
+        }
+    }
 
     public class TaskData : INotifyPropertyChanged {
+
+        public static Dictionary<Priority, PriorityOptions> tags = new Dictionary<Priority, PriorityOptions>( ) {
+            {NewTask.Priority.VeryHigh, new PriorityOptions(){Title = "Very high", Color = new SolidColorBrush(Colors.Red)} },
+            {NewTask.Priority.High, new PriorityOptions(){Title = "High", Color = new SolidColorBrush(Colors.Orange)} },
+            {NewTask.Priority.Normal, new PriorityOptions(){Title = "Normal", Color = new SolidColorBrush(Colors.Green)} },
+            {NewTask.Priority.Low, new PriorityOptions(){Title = "Low", Color = new SolidColorBrush(Colors.Blue)} },
+            {NewTask.Priority.VeryLow, new PriorityOptions(){Title = "Very low", Color = new SolidColorBrush(Colors.Purple)} },
+        };
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged( [CallerMemberName] string name = null ) {
@@ -60,8 +77,17 @@ namespace TaskOrganizer.Components.Tasks {
             set {
                 priority = value;
                 OnPropertyChanged( );
+                OnPropertyChanged( "PriorityString" );
+                OnPropertyChanged( "Color" );
             }
         }
+
+        public String PriorityString {
+            get {
+                return tags[ priority ].Title;
+            }
+        }
+
         public DateTime Date {
             get {
                 return date;
@@ -69,8 +95,16 @@ namespace TaskOrganizer.Components.Tasks {
             set {
                 date = value;
                 OnPropertyChanged( );
+                OnPropertyChanged( "DateString" );
             }
         }
+
+        public String DateString {
+            get {
+                return date.ToShortDateString( );
+            }
+        }
+
         public Boolean IsDone {
             get {
                 return isDone;
@@ -81,6 +115,12 @@ namespace TaskOrganizer.Components.Tasks {
             }
         }
 
+        public SolidColorBrush Color {
+            get {
+                Trace.WriteLine( priority.ToString( ) + "OMG");
+                return tags[ priority ].Color;
+            }
+        }
     }
     public partial class Task : UserControl, INotifyPropertyChanged {
 
@@ -109,22 +149,5 @@ namespace TaskOrganizer.Components.Tasks {
         public override string ToString( ) {
             return taskData.ToString( );
         }
-
-        class PriorityOptions {
-            public String Title {
-                get; set;
-            }
-            public SolidColorBrush Color {
-                get; set;
-            }
-        }
-
-        static Dictionary<Priority, PriorityOptions> tags = new Dictionary<Priority, PriorityOptions>( ) {
-            {NewTask.Priority.VeryHigh, new PriorityOptions(){Title = "Very high", Color = new SolidColorBrush(Colors.Red)} },
-            {NewTask.Priority.High, new PriorityOptions(){Title = "High", Color = new SolidColorBrush(Colors.Orange)} },
-            {NewTask.Priority.Normal, new PriorityOptions(){Title = "Normal", Color = new SolidColorBrush(Colors.Green)} },
-            {NewTask.Priority.Low, new PriorityOptions(){Title = "Low", Color = new SolidColorBrush(Colors.Blue)} },
-            {NewTask.Priority.VeryLow, new PriorityOptions(){Title = "Very low", Color = new SolidColorBrush(Colors.Purple)} },
-        };
     }
 }
